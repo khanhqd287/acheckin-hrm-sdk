@@ -1,6 +1,6 @@
 {
-	"name": "acheckin-miniapp-sdk",
-	"version": "1.0.8",
+	"name": "acheckin-hrm-sdk",
+	"version": "1.0.9",
 	"directories": {
 		"lib": "lib"
 	},
@@ -8,10 +8,7 @@
 		"typescript": "^3.7.2"
 	},
 	"author": "Quach Dai Khanh <khanhqd.neu@gmail.com>",
-	"contributors": [
-		"Nguyen Luong Bang <luongbang152@gmail.com>"
-	],
-	"description": "ACheckin SDK",
+	"description": "ACheckin HRM SDK",
 	"main": "./lib/index.js",
 	"typings": "./lib/index.d.ts",
 	"scripts": {
