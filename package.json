@@ -1,0 +1,28 @@
+{
+	"name": "acheckin-miniapp-sdk",
+	"version": "1.0.7",
+	"directories": {
+		"lib": "lib"
+	},
+	"dependencies": {
+		"typescript": "^3.7.2"
+	},
+	"author": "Quach Dai Khanh <khanhqd.neu@gmail.com>",
+	"contributors": [
+		"Nguyen Luong Bang <luongbang152@gmail.com>"
+	],
+	"description": "ACheckin SDK",
+	"main": "./lib/index.js",
+	"typings": "./lib/index.d.ts",
+	"scripts": {
+		"build": "yarn tsc",
+		"prepack": "yarn build"
+	},
+	"keywords": [
+		"acheckin",
+		"react-sdk",
+		"mini",
+		"app"
+	],
+	"license": "ISC"
+}
