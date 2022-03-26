@@ -128,6 +128,7 @@ export interface ITakePhotoRes {
 	data: IPhotoType[],
 }
 
+
 export interface ICheckinAppliance {
 	id: string;
     type: any;
@@ -261,6 +262,12 @@ class ACheckinSDK {
 		ACheckinSDK.validInitSDK();
 
 		return window.ACheckin.handleSDK("takePhoto", {});
+	}
+
+	static takePhotoUrl(): Promise<string> {
+		ACheckinSDK.validInitSDK();
+
+		return window.ACheckin.handleSDK("takePhotoUrl", {});
 	}
 
 	static checkinAppliance(fields: ICheckinAppliance): Promise<any> {

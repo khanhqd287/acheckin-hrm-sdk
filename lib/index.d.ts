@@ -147,6 +147,7 @@ declare class ACheckinSDK {
     static copyString(data: any): Promise<any>;
     static showAlert(fields: IShowAlertOpt): Promise<any>;
     static takePhoto(): Promise<ITakePhotoRes>;
+    static takePhotoUrl(): Promise<string>;
     static checkinAppliance(fields: ICheckinAppliance): Promise<any>;
     static getInitPage(): Promise<any>;
 }
