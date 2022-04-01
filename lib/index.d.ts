@@ -150,5 +150,11 @@ declare class ACheckinSDK {
     static takePhotoUrl(): Promise<string>;
     static checkinAppliance(fields: ICheckinAppliance): Promise<any>;
     static getInitPage(): Promise<any>;
+    static addShakeEventListener(callback: () => void): () => void;
+    static getAccessToken(): Promise<any>;
+    static getUserPersonalInfo(): Promise<UserPersonalInfo>;
+    static getUserWorkspaceInfo(): Promise<UserWorkspaceInfo>;
+    static isCheckedIn(): Promise<boolean>;
+    static shareScreen(message: string): Promise<any>;
 }
 export { ACheckinSDK };
