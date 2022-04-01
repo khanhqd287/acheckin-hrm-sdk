@@ -282,6 +282,50 @@ class ACheckinSDK {
 		return window.ACheckin.handleSDK("getInitPage", {});
 	}
 
+	static addShakeEventListener(callback: () => void): () => void {
+		const listenerFn = () => {
+			callback();
+		};
+
+		window.addEventListener("ACheckin.ShakeEvent", listenerFn);
+
+		return () => {
+			window.removeEventListener("ACheckin.ShakeEvent", listenerFn);
+		};
+	}
+
+	static getAccessToken() {
+		ACheckinSDK.validInitSDK();
+
+		return window.ACheckin.handleSDK("getAccessToken");
+	}
+
+	static getUserPersonalInfo(): Promise<UserPersonalInfo> {
+		ACheckinSDK.validInitSDK();
+
+		return window.ACheckin.handleSDK("getUserPersonalInfo");
+	}
+
+	static getUserWorkspaceInfo(): Promise<UserWorkspaceInfo> {
+		ACheckinSDK.validInitSDK();
+
+		return window.ACheckin.handleSDK("getUserWorkspaceInfo");
+	}
+
+	static isCheckedIn(): Promise<boolean> {
+		ACheckinSDK.validInitSDK();
+
+		return window.ACheckin.handleSDK("isCheckedIn");
+	}
+
+	static shareScreen(message: string) {
+		ACheckinSDK.validInitSDK();
+
+		return window.ACheckin.handleSDK("shareScreen", {
+			message: message
+		});
+	}
+
 }
 
 export { ACheckinSDK };

@@ -108,17 +108,9 @@ try {
 	const accessToken = await ACheckinSDK.getAccessToken();
 
 	// lấy thông tin người dùng (public)
-	const userInfo = await ACheckinSDK.getUserPersonalInfo([
-		"id",
-		"email",
-		"name"
-	]);
+	const userInfo = await ACheckinSDK.getUserPersonalInfo();
 	// lấy thông tin người dùng (trong workspace)
-	const userInfo = await ACheckinSDK.getUserWorkspaceInfo([
-		"id",
-		"email",
-		"name"
-	]);
+	const userInfo = await ACheckinSDK.getUserWorkspaceInfo();
 } catch (e) {}
 ```
 
@@ -145,26 +137,25 @@ Coming Soon
 ## 📖 API Reference
 
 - `getAccessToken()` -> `Promise<string>` - lấy accesstoken
-- `getUserPersonalInfo(array)` -> `Promise<UserInfo>` - lấy thông tin user public (personal)
+- `getUserPersonalInfo()` -> `Promise<UserPersonalInfo>` - lấy thông tin user public (personal)
 
 ```typescript
-interface UserInfo {
+interface UserPersonalInfo {
+	avatar: string;
 	id: string;
+	language: string;
 	name: string;
-	picture: string;
-	email: string;
-	birthday: string;
-	gender: "F" | "M";
+	username: string;
+	phone_number: string;
 }
 ```
 
-- `getUserWorkspaceInfo(array)` -> `Promise<UserWorkspaceInfo>` - lấy thông tin user trong workspace
+- `getUserWorkspaceInfo()` -> `Promise<UserWorkspaceInfo>` - lấy thông tin user trong workspace
 
 ```typescript
 interface UserWorkspaceInfo {
 	id: string;
 	name: string;
-	picture: string;
 	email: string;
 	birthday: string;
 	gender: "F" | "M";
@@ -204,9 +195,6 @@ interface DeviceInfo {
 
 - `addShakeEventListener(callback)` - xử lý event lắc thiết bị
 
-- `showBottomTabs` - hiện thanh công cụ ở dưới màn hình
-- `hideBottomTabs` - ẩn thanh công cụ ở dưới màn hình
-
 - `isCheckedIn` -> `Promise<boolean>` - kiểm tra user đã checkin vào workspace hay chưa
 
 - `getCurrentLocation` -> `Promise<Location>` - lấy vị trí hiện tại của user
@@ -223,5 +211,3 @@ interface Location {
 - `setLocalNotification({title, body, schedule_time: number})` - tạo và lên lịch hiển thị local notification
 
 - `vibrate` - rung thiết bị
-
-- `getStaffOfLeader({offset, limit})` -> `Promise<{total, data: {id, name, picture, email}}>` - lấy danh sách nhân viên
