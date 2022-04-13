@@ -67,7 +67,9 @@ export interface IDatePickerProps {
 	title?: string,
 	confirmText?: string,
 	locale?: 'vi' | 'en',
-	minuteInterval?: 1 | 15 | 2 | 3 | 4 | 5 | 6 | 10 | 12 | 20 | 30
+	minuteInterval?: 1 | 15 | 2 | 3 | 4 | 5 | 6 | 10 | 12 | 20 | 30,
+	maximumDate?: Date,
+	minimumDate?: Date,
 }
 
 export interface ICalendarPickerProps {
