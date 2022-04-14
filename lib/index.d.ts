@@ -3,6 +3,11 @@ export interface UserPersonalInfo {
 }
 export interface UserWorkspaceInfo {
     id?: string;
+    name: string;
+    is_owner: boolean;
+    is_leader: boolean;
+    picture?: string;
+    current_workspace: string;
 }
 export interface DeviceInfo {
     device_id: string;
@@ -94,6 +99,16 @@ export interface IStaffPicker {
     max?: number;
     currents?: IStaffInfo[];
 }
+export interface IStaffOfLeader {
+    id: string;
+    name: string;
+    picture?: string;
+    email?: string;
+}
+export interface IStaffOfLeaderRes {
+    total: number;
+    data: IStaffOfLeader[];
+}
 export interface IShowAlertOpt {
     title?: string;
     confirmText?: string;
@@ -118,6 +133,10 @@ export interface ICheckinAppliance {
     id: string;
     type: any;
     time: string;
+}
+export interface IGetStaffOfLeaderArgs {
+    limit?: number;
+    offset?: number;
 }
 declare class ACheckinSDK {
     static sdk_ready: boolean;
@@ -158,5 +177,6 @@ declare class ACheckinSDK {
     static getUserWorkspaceInfo(): Promise<UserWorkspaceInfo>;
     static isCheckedIn(): Promise<boolean>;
     static shareScreen(message: string): Promise<any>;
+    static getStaffOfLeader(fields: IGetStaffOfLeaderArgs): Promise<IStaffOfLeaderRes>;
 }
 export { ACheckinSDK };

@@ -4,6 +4,11 @@ export interface UserPersonalInfo {
 
 export interface UserWorkspaceInfo {
 	id?: string,
+	name: string,
+	is_owner: boolean,
+	is_leader: boolean,
+	picture?: string,
+	current_workspace: string,
 }
 export interface DeviceInfo {
 	device_id: string;
@@ -107,6 +112,18 @@ export interface IStaffPicker {
 	currents?: IStaffInfo[],
 }
 
+export interface IStaffOfLeader {
+	id: string,
+	name: string,
+	picture?: string,
+	email?: string,
+}
+
+export interface IStaffOfLeaderRes {
+	total: number,
+	data: IStaffOfLeader[],
+}
+
 export interface IShowAlertOpt {
 	title?: string,
 	confirmText?: string,
@@ -133,8 +150,13 @@ export interface ITakePhotoRes {
 
 export interface ICheckinAppliance {
 	id: string;
-    type: any;
+	type: any;
 	time: string;
+}
+
+export interface IGetStaffOfLeaderArgs {
+	limit?: number,
+	offset?: number,
 }
 
 class ACheckinSDK {
@@ -326,6 +348,12 @@ class ACheckinSDK {
 		return window.ACheckin.handleSDK("shareScreen", {
 			message: message
 		});
+	}
+
+	static getStaffOfLeader(fields: IGetStaffOfLeaderArgs): Promise<IStaffOfLeaderRes> {
+		ACheckinSDK.validInitSDK();
+
+		return window.ACheckin.handleSDK("getStaffOfLeader", fields);
 	}
 
 }

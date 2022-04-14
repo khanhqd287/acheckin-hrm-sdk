@@ -1,6 +1,6 @@
 {
 	"name": "acheckin-hrm-sdk",
-	"version": "1.0.12",
+	"version": "1.0.14",
 	"directories": {
 		"lib": "lib"
 	},
